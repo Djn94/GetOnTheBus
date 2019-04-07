@@ -11,3 +11,6 @@ First time
 Frequency
 ^^^^VARS
 calculated--- next vessel arrival (mod w remainder)
+creep thru class activitity
+ next step, push the child div into the table
+with the when child_Added from class but wot wos it
