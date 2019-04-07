@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron">
+                <h1 class="display-4">Chicago's Intricate System of Bus</h1>
+                <hr class="my-4">
+                <p class="lead">bus emojissss</p>
+            </div>
+            <div class="row">
+                <p id='dailySchedule'>Daily Schedule</p>
+            </div>
+            <div class="row">
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th scope='col'>Bus Number</th>
+                            <th scope='col'>Destination</th>
+                            <th scope='col'>Initial Departure</th>
+                            <th scope='col'>Frequency</th>
+                            <th scope='col'>Next Vessel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id='inputRow'></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <form>
+                    <div class='formDiv'>
+                        <div class="row">
+                            <p class="inp">Bus Number:</br>
+                                <input type="text" name="busNumber" placeholder="Please enter bus number." class="input"
+                                    id='busNum'>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <p class="inp">Destination: </br>
+                                <input type="text" name="Job" placeholder="Please enter the destination." class="input"
+                                    id='trainDest'></p>
+                        </div>
+                        <div class="row">
+                            <p class="inp">Initial Departure: </br>
+                                <input type="text" name="Message" placeholder="When did you start?" class="input"
+                                    id='startDate'>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <p class="inp">Frequency: </br>
+                                <input type="text" name="Message" placeholder="how much you make a month dog?"
+                                    class="input" id='monthlyRate'>
+                            </p>
+                        </div>
+                        <button class="btn btn-default" id="add-bus" type='button'> submit ya bus </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src='./assets/javascript/java.js'> </script>
+</body>
+
+</html>

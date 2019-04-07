@@ -1,0 +1,13 @@
+bus schedules n ye
+Need a firebase app
+gotta config grab get the cdn
+initialize it
+ database var it
+
+cols needed for html
+Name
+Destination
+First time
+Frequency
+^^^^VARS
+calculated--- next vessel arrival (mod w remainder)
