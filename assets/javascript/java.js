@@ -31,9 +31,12 @@ $('#add-bus').on('click', function (event) {
     })
 });
 database.ref().on('child_added', function (childSnap) {
-    console.log(childSnap.val().name);
     console.log(childSnap.val().idNumber);
     console.log(childSnap.val().destination);
     console.log(childSnap.val().initialLeave);
     console.log(childSnap.val().trainFrequency);
-})
+    $("#inputRow").append(" <tr> <th scope='row'>" + childSnap.val().idNumber + "</th> <td scope='col'> " + childSnap.val().destination +
+        "</td> <td scope='col'> " + childSnap.val().initialLeave +
+        "</td> <td scope='col'> " + childSnap.val().trainFrequency + "</td>" + "<td>'this is where the cal will go'</td></tr>");
+
+});
