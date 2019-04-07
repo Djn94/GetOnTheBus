@@ -30,3 +30,10 @@ $('#add-bus').on('click', function (event) {
         console.log(errorObject);
     })
 });
+database.ref().on('child_added', function (childSnap) {
+    console.log(childSnap.val().name);
+    console.log(childSnap.val().idNumber);
+    console.log(childSnap.val().destination);
+    console.log(childSnap.val().initialLeave);
+    console.log(childSnap.val().trainFrequency);
+})
