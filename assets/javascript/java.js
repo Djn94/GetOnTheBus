@@ -15,40 +15,37 @@ firebase.initializeApp(config);
 var database = firebase.database();
 console.log(database);
 $('#add-bus').on('click', function (event) {
-
     event.preventDefault();
+    let currentTime = moment();
+
     busNum = $('#busNum').val().trim();
     busDest = $('#trainDest').val().trim();
     busLeave = $('#initialDep').val().trim();
     busFreq = $('#frequency').val().trim();
+
+    var momentLeave = moment(busLeave, "HH:mm").subtract(1, "years");
+    var initialResult = moment().diff(moment(momentLeave), "minutes");
+    var freqMod = initialResult % busFreq;
+    var busMinsAway = busFreq - freqMod;
+    var momentNextBus = moment().add(busMinsAway, "minutes");
+    var nextBus = moment(momentNextBus).format(' h:mm a')
+
     database.ref().push({
         idNumber: busNum,
         destination: busDest,
         initialLeave: busLeave,
-        trainFrequency: busFreq,
+        busFrequency: busFreq,
+        moreMinutes: busMinsAway,
+        theNextBus: nextBus,
     },
         function (errorObject) {
             console.log(errorObject);
         })
 });
 database.ref().on('child_added', function (childSnap) {
-    console.log(childSnap.val().idNumber);
-    console.log(childSnap.val().destination);
-    console.log(childSnap.val().initialLeave);
-    console.log(childSnap.val().trainFrequency);
     $("#inputRow").append(" <tr> <th scope='row'>" + childSnap.val().idNumber + "</th> <td scope='col'> " + childSnap.val().destination +
         "</td> <td scope='col'> " + childSnap.val().initialLeave +
-        "</td> <td scope='col'> " + childSnap.val().trainFrequency + "</td>" + "<td>'this is where the cal will go'</td></tr>");
+        "</td> <td scope='col'> " + childSnap.val().busFrequency + "</td>" + "<td>" + childSnap.val().moreMinutes + "</td><td>" + childSnap.val().theNextBus + "</td></tr>");
 
 });
 
-
-//initial time minus current time equals initres
-//initres mod frequency equals freqMod
-//frequency minus freqMod = how many minutes away minsAway
-//howmany mins away+current time==next arrival
-
-initialLeave - currentTime = initialResult
-initialResult % trainFrequency = freqMod
-trainFrequency - freqMod = minsAway
-minsAway + currentTime=nextArrival
