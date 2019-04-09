@@ -1,2 +1,20 @@
-body{background-color: white;
+body{background-color: whitesmoke;
+}
+h1, h2, h3{
+    font-family: 'Times New Roman', Times, serif
+}
+p{
+    font-family: sans-serif
+}
+.input{
+    width:100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: left;
+}
+.jumbotron{
+    text-align: center
 }

@@ -45,7 +45,7 @@ $('#add-bus').on('click', function (event) {
 database.ref().on('child_added', function (childSnap) {
     $("#inputRow").append(" <tr> <th scope='row'>" + childSnap.val().idNumber + "</th> <td scope='col'> " + childSnap.val().destination +
         "</td> <td scope='col'> " + childSnap.val().initialLeave +
-        "</td> <td scope='col'> " + childSnap.val().busFrequency + "</td>" + "<td>" + childSnap.val().moreMinutes + "</td><td>" + childSnap.val().theNextBus + "</td></tr>");
+        "</td> <td scope='col'> Every " + childSnap.val().busFrequency + " minutes</td>" + "<td>in " + childSnap.val().moreMinutes + " minutes</td><td>at " + childSnap.val().theNextBus + "</td></tr>");
 
 });
 
