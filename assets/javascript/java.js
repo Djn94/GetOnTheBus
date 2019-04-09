@@ -26,9 +26,10 @@ $('#add-bus').on('click', function (event) {
         destination: busDest,
         initialLeave: busLeave,
         trainFrequency: busFreq,
-    }, function (errorObject) {
-        console.log(errorObject);
-    })
+    },
+        function (errorObject) {
+            console.log(errorObject);
+        })
 });
 database.ref().on('child_added', function (childSnap) {
     console.log(childSnap.val().idNumber);
@@ -40,3 +41,14 @@ database.ref().on('child_added', function (childSnap) {
         "</td> <td scope='col'> " + childSnap.val().trainFrequency + "</td>" + "<td>'this is where the cal will go'</td></tr>");
 
 });
+
+
+//initial time minus current time equals initres
+//initres mod frequency equals freqMod
+//frequency minus freqMod = how many minutes away minsAway
+//howmany mins away+current time==next arrival
+
+initialLeave - currentTime = initialResult
+initialResult % trainFrequency = freqMod
+trainFrequency - freqMod = minsAway
+minsAway + currentTime=nextArrival
