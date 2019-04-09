@@ -2,7 +2,6 @@ console.log('aye')
 var busNum;
 var busDest;
 var initialLeave;
-var trainFrequency;
 var config = {
     apiKey: "AIzaSyAgCT-vlZgqogA2vjv7qGjnE8agod2FDTY",
     authDomain: "nuclassproj.firebaseapp.com",
@@ -41,6 +40,10 @@ $('#add-bus').on('click', function (event) {
         function (errorObject) {
             console.log(errorObject);
         })
+    $('#busNum').val('');
+    $('#trainDest').val('');
+    $('#initialDep').val('');
+    $('#frequency').val('');
 });
 database.ref().on('child_added', function (childSnap) {
     $("#inputRow").append(" <tr> <th scope='row'>" + childSnap.val().idNumber + "</th> <td scope='col'> " + childSnap.val().destination +
